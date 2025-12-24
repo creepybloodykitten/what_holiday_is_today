@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Важно: запрещаем масштабирование пальцами, чтобы было как в приложении -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Для Тебя</title>
+
+    <!-- Подключаем стили и манифест -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- === СПЕЦИАЛЬНЫЕ ТЕГИ ДЛЯ iOS (iPHONE) === -->
+    <!-- Говорит айфону: "Я веб-приложение, скрой адресную строку Safari" -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Цвет статус-бара (черный, прозрачный и т.д.) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Название под иконкой на рабочем столе -->
+    <meta name="apple-mobile-web-app-title" content="Для Тебя">
+    
+    <!-- Иконка для айфона (путь к файлу) -->
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <!-- Цвет темы (влияет на "челку" в новых айфонах) -->
+    <meta name="theme-color" content="#ff4081">
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>Привет! </h1>
+        <p>Ананасики</p>
+        <button id="clickBtn">Нажми меня</button>
+        <p id="message"></p>
+    </div>
+
+    <!-- Подключаем скрипт логики -->
+    <script src="app.js"></script>
+    
+    <!-- Регистрация Service Worker (чтобы работало как приложение) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker зарегистрирован!'))
+                .catch((error) => console.log('Ошибка SW:', error));
+        }
+    </script>
+</body>
+</html>

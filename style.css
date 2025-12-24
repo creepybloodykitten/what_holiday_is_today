@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #fce4ec; /* Розовый фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Запрет "оттягивания" страницы вниз на iOS */
+    overscroll-behavior-y: none;
+}
+
+.app-container {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 80%;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    /* Убираем синюю подсветку при нажатии на мобильных */
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Запрет выделения текста (чтобы ощущалось как приложение) */
+h1, p {
+    user-select: none; 
+    -webkit-user-select: none;
+}
