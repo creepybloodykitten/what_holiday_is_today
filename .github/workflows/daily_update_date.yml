@@ -16,22 +16,21 @@ jobs:
     - name: Скачиваем репозиторий
       uses: actions/checkout@v3
 
-    - name: Устанавливаем Python
-      uses: actions/setup-python@v4
+    - name: Устанавливаем Node.js
+      uses: actions/setup-node@v3
       with:
-        python-version: '3.9'
+        node-version: 18
 
-    - name: Устанавливаем библиотеки
-      run: pip install requests beautifulsoup4
+    - name: Устанавливаем зависимости (Puppeteer)
+      run: npm install
 
     - name: Запускаем парсер
-      run: python parser.py
+      run: node parser.js
 
-    - name: Сохраняем изменения (git push)
+    - name: Сохраняем результат (git push)
       run: |
         git config --global user.name 'HolidayBot'
         git config --global user.email 'bot@noreply.github.com'
         git add data.json
-        # Если изменений нет (файл тот же), commit не упадет с ошибкой
-        git commit -m "Обновлены праздники" || echo "Изменений нет"
+        git commit -m "Обновление праздников" || echo "Изменений нет"
         git push

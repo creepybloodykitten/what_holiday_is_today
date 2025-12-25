@@ -1,0 +1,11 @@
+{
+  "name": "holiday-parser",
+  "version": "1.0.0",
+  "main": "parser.js",
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  },
+  "scripts": {
+    "start": "node parser.js"
+  }
+}
