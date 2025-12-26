@@ -35,9 +35,9 @@ jobs:
         git commit -m "Обновление праздников" || echo "Изменений нет"
         git push
 
-    - name: Загрузить скриншот (для отладки)
-      if: always() # Выполнять даже если были ошибки
-      uses: actions/upload-artifact@v4
-      with:
-        name: debug-screenshot
-        path: debug-screenshot.png
+    # - name: Загрузить скриншот (для отладки)
+    #   if: always() # Выполнять даже если были ошибки
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: debug-screenshot
+    #     path: debug-screenshot.png
