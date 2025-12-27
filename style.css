@@ -1,31 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #fce4ec; /* Розовый фон */
+    background-color: #fce4ec;
+    
+    /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* Чтобы страница не прыгала, скроллим только внутренности */
+    justify-content: center; /* Центр по горизонтали */
+    /* Убираем align-items: center, он конфликтует при изменении высоты */
+    
+    /* Используем dvh - динамическую высоту */
+    height: 100dvh; 
+    
+    /* Запрещаем скролл самого розового фона */
     overflow: hidden; 
+    overscroll-behavior: none; /* Блокирует "пружинку" обновления */
 }
 
 .app-container {
-    text-align: center;
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
     
-    width: 90%; /* Немного шире, чтобы текст влезал */
+    /* Размеры */
+    width: 90%;
     max-width: 500px;
     
-    /* Ограничиваем высоту карточки и говорим ей распределять место */
-    max-height: 85vh; 
+    /* ВАЖНО: Оставляем место сверху и снизу */
+    /* Вместо 85vh ставим 80dvh, чтобы точно влезло с отступами */
+    max-height: 80dvh; 
+    
+    /* Магическое центрирование */
+    margin: auto; /* Это надежнее, чем align-items: center */
+    
+    /* Структура внутри */
     display: flex;
     flex-direction: column;
     padding: 20px;
-    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+    position: relative; /* Чтобы не улетало */
 }
 
 /* Дата наверху */
