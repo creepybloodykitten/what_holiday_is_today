@@ -301,11 +301,16 @@ const URL = 'https://kakoj-segodnja-prazdnik.com/';
       if (mainTable) {
         // Берем все параграфы внутри ячеек
         const paragraphs = mainTable.querySelectorAll('td p');
-
+        
         for (const p of paragraphs)
         {
+          let text = p.innerText.trim();
+          //if (text.textContent.includes('день в году') || text.textContent.includes('До конца года')) break;
+          if (text.includes('день в году') || text.includes('До конца года')) break;
           if (dateEl && p.contains(dateEl)) break; 
           if (p.querySelector('img') && !p.innerText.trim()) continue;
+          if (text.length > 200) continue; 
+          if (!text) continue;
 
           const smallFont = p.querySelector('span[style*="font-size: medium"]');
           if (smallFont && p.innerText.trim() === smallFont.innerText.trim()) return;
