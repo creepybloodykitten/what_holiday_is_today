@@ -313,9 +313,9 @@ const URL = 'https://kakoj-segodnja-prazdnik.com/';
           if (!text) continue;
 
           const smallFont = p.querySelector('span[style*="font-size: medium"]');
-          if (smallFont && p.innerText.trim() === smallFont.innerText.trim()) return;
+          if (smallFont && p.innerText.trim() === smallFont.innerText.trim()) continue;
 
-          addText(p.innerText);
+          addText(text);
         }
     }
 
