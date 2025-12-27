@@ -5,7 +5,32 @@ const fs = require('fs');
 
 puppeteer.use(StealthPlugin());
 
-const URL = 'https://kakoj-segodnja-prazdnik.com/';
+const now = new Date();
+const vdkDate = new Date(now.getTime() + (10 * 60 * 60 * 1000));//владивосток
+
+const day = vdkDate.getDate();       // Число (27, 28...)
+const monthIndex = vdkDate.getMonth(); // 0..11
+
+// Массив 1: Для части "v-dekabre" (в ком?)
+const monthsIn = [
+    'v-janvare', 'v-fevrale', 'v-marte', 'v-aprele', 'v-mae', 'v-ijune',
+    'v-ijule', 'v-avguste', 'v-sentjabre', 'v-oktjabre', 'v-nojabre', 'v-dekabre'
+];
+
+// Массив 2: Для части "27-dekabrja" (чего?)
+const monthsGenitive = [
+    'janvarja', 'fevralja', 'marta', 'aprelja', 'maja', 'ijunja',
+    'ijulja', 'avgusta', 'sentjabrja', 'oktjabrja', 'nojabrja', 'dekabrja'
+];
+
+// Получаем нужные строки
+const monthPart1 = monthsIn[monthIndex];       // например, "v-dekabre"
+const monthPart2 = monthsGenitive[monthIndex]; // например, "dekabrja"
+
+// Собираем ссылку: https://.../prazdniki/v-dekabre/27-dekabrja
+const URL = `https://kakoj-segodnja-prazdnik.com/prazdniki/${monthPart1}/${day}-${monthPart2}`;
+
+//const URL = 'https://kakoj-segodnja-prazdnik.com/';
 
 (async () => {
   console.log(`🚀 Заходим на ${URL}...`);

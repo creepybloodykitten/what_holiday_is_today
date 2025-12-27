@@ -17,7 +17,7 @@ async function loadHoliday() {
         messageElement.style.display = 'none'; 
 
         // дата
-        dateElement.innerText = `Каждый день уникален. Сегодня: ${data.date}`;
+        dateElement.innerHTML = `Каждый день уникален<br>Сегодня: ${data.date}`;
         dateElement.style.display = 'block';
 
         // очищение список перед загрузкой
