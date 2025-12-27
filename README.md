@@ -1,2 +1,2 @@
 # what_holiday_is_today
-web-crossplatform app on android/ios
+Вся информация взята с https://kakoj-segodnja-prazdnik.com/
