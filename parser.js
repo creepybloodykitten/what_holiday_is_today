@@ -82,7 +82,9 @@ const URL = 'https://kakoj-segodnja-prazdnik.com/';
           let sibling = extraHeader.nextElementSibling;
           
           while (sibling) {
-              // Если наткнулись на разделитель или новую таблицу - останавливаемся
+              if (dateEl && (sibling === dateEl || sibling.contains(dateEl))) {
+                  break;
+              }
               if (sibling.tagName === 'HR' || sibling.tagName === 'TABLE' || sibling.tagName === 'DIV' || sibling.tagName === 'H2') {
                   break;
               }
