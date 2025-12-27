@@ -197,9 +197,10 @@ const URL = 'https://kakoj-segodnja-prazdnik.com/';
           
           while (sibling) {
               // Если наткнулись на разделитель или новую таблицу - останавливаемся
-              if (sibling.tagName === 'HR' || sibling.tagName === 'TABLE' || sibling.tagName === 'DIV') {
+              if (sibling.tagName === 'HR' || sibling.tagName === 'TABLE' || sibling.tagName === 'DIV' || sibling.tagName === 'H2') {
                   break;
               }
+              if (sibling.textContent.includes('день в году') || sibling.textContent.includes('До конца года')) break;
 
               
               if (sibling.tagName === 'P') {
