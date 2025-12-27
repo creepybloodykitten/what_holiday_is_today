@@ -74,29 +74,29 @@ const URL = 'https://kakoj-segodnja-prazdnik.com/';
         });
     }
 
-      const allH2 = Array.from(document.querySelectorAll('h2'));
-      const extraHeader = allH2.find(el => el.textContent.includes('Сегодня так же отмечают'));
+      // const allH2 = Array.from(document.querySelectorAll('h2'));
+      // const extraHeader = allH2.find(el => el.textContent.includes('Сегодня так же отмечают'));
 
-      if (extraHeader) {
-          // Перебираем элементы, идущие сразу после заголовка
-          let sibling = extraHeader.nextElementSibling;
+      // if (extraHeader) {
+      //     // Перебираем элементы, идущие сразу после заголовка
+      //     let sibling = extraHeader.nextElementSibling;
           
-          while (sibling) {
-              if (dateEl && (sibling === dateEl || sibling.contains(dateEl))) {
-                  break;
-              }
-              if (sibling.tagName === 'HR' || sibling.tagName === 'TABLE' || sibling.tagName === 'DIV' || sibling.tagName === 'H2') {
-                  break;
-              }
-              if (sibling.textContent.includes('день в году') || sibling.textContent.includes('До конца года')) break;
+      //     while (sibling) {
+      //         if (dateEl && (sibling === dateEl || sibling.contains(dateEl))) {
+      //             break;
+      //         }
+      //         if (sibling.tagName === 'HR' || sibling.tagName === 'TABLE' || sibling.tagName === 'DIV' || sibling.tagName === 'H2') {
+      //             break;
+      //         }
+      //         if (sibling.textContent.includes('день в году') || sibling.textContent.includes('До конца года')) break;
 
               
-              if (sibling.tagName === 'P') {
-                  addText(sibling.innerText);
-              }
-              sibling = sibling.nextElementSibling;
-          }
-      } 
+      //         if (sibling.tagName === 'P') {
+      //             addText(sibling.innerText);
+      //         }
+      //         sibling = sibling.nextElementSibling;
+      //     }
+      // } 
 
       return {
         date: dateText,
